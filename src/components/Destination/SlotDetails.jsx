@@ -5,12 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 
-// import { generatePath } from "react-router-dom";
-// import { Link } from 'react-router-dom';
-// import Payment from '../../pages/Payment';
-// import AuthContext from '../../store/AuthContext';
-// import { BrowserRouter } from 'react-router-dom';
-// import { ReactDOM } from 'react';
+
 
 const isEmpty= value=> value.trim()==='';
 const isTenChars = (value) => value.trim().length === 10;
@@ -39,17 +34,17 @@ var year = d.getFullYear();
 currentBookingTime = day + " " + hr + ":" + min + ampm + " " + date + " " + month + " " + year;
 
 
-// let fromtime:;
+
 const SlotDetails = (props) => {
   var advdate=0
   advdate=props.date
   var toTime = props.to;
   var fromTime= props.from;
   var amount=props.amount;
-  // var date= props.todate
+  
   var bookedtime=props.bookedtime;
   if(toTime == 0 && (advdate ==undefined|| advdate==""))
-  // if(toTime == 0 || (advdate=="0" && advdate ==""))
+  
     {
     console.log(advdate)
     console.log(toTime)
@@ -108,15 +103,10 @@ const SlotDetails = (props) => {
         enteredRegnoIsValid;
       
      if (!formIsValid) {
-        
-      // alert("Invalid Form");
       event.preventDefault();
-        
-
-      }
+        }
       else{
         let i=0;
-        // {`/details/payment-proceed/${params.detailId}`}
         const requestOptions={
           method: 'POST',
           headers: {'Content-Type':'application/json'},
@@ -126,7 +116,6 @@ const SlotDetails = (props) => {
         }
         fetch('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyD8QDTrddis-y7KdoWZawqFlGr5Iz_M3q4', requestOptions)
         .then(response => response.json())
-        // .then(data =>console.log(data));
         .then((data)=>{
           console.log(data)
           let email1
@@ -144,7 +133,6 @@ const SlotDetails = (props) => {
           calctime.push(caltime);
             }
             calctimefinalstr=calctime.toString();
-            // var calctimefinal1= calctimefinal.replace(/,/g, "");
             const calctimefinal = calctimefinalstr.split(",");
             for(var j=0;j<bookedtime;j++){
               calctime.pop();
