@@ -1,0 +1,251 @@
+.destination {
+    background-color: #38015c ;
+    color: white;
+    border-radius: 6px;
+    padding: 3rem;
+    left:0px;
+    width: 26%;
+    max-width: 40rem;
+    height: 75vh;
+    position: relative;
+    left: -34px;
+
+    
+  }
+  
+  .destination p {
+    font-size: 1.5rem;
+  }
+  
+  .destination figcaption {
+    font-style: italic;
+    font-size: 1rem;
+    text-align: center;
+    color: #a1e0e0;
+  }
+    
+.centered {
+  margin: 3rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Button {
+  font: inherit;
+background-color:white;
+border: 1px solid white;
+color: #38015c;
+font-weight: bold;
+padding: 0.5rem 1.5rem;
+border-radius: 6px;
+cursor: pointer;
+list-style: none;
+text-decoration: none;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  position: relative;
+    bottom: 70px;
+    margin: 2px 100px;
+
+}
+.but {
+  font: inherit;
+background-color:#38015c;
+border: 1px solid white;
+color: white;
+font-weight: bold;
+padding: 0.5rem 1.5rem;
+border-radius: 6px;
+cursor: pointer;
+margin:5px 56px;
+right:125px;
+list-style: none;
+text-decoration: none;
+float: right;
+  
+}
+.but:hover {
+  background-color: #c291e2;
+  color: #38015c; 
+}
+.foot{
+  background-color: #38015c;
+    position: absolute;
+    bottom: 3px;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+    color: white;
+    display: block;
+}
+  .map{
+    margin: 50px 444px;
+    height: 355px;
+    width: 777px;
+    position: absolute;
+    top: 280px;
+    
+}
+.slots{
+  margin: 50px 444px;
+  height: 200px;
+  width: 777px;
+  position: absolute;
+  top: 50px;
+  display: flex;
+}
+.box1{
+
+  flex: 50%;
+  height: 150px;
+
+}
+.box2{
+
+  flex:50%;
+  height: 150px;
+}
+.amount{
+
+  float: right;
+    top: 93px;
+    position: absolute;
+    right: 5px;
+    width: 280px;
+    height: 500px;
+    z-index: -10;
+}
+.title{
+  background-color: #dcebf8;
+  font-weight: 700;
+  margin: 0px;
+  color: black;
+  text-align: center;
+
+}
+.time{
+  margin:2px 43px;
+  
+
+}
+.price{
+  margin:2px 43px;
+}
+.final{
+  margin: 0px 56px;
+}
+.amt{
+  margin:0px 33px;
+  text-align: center;
+}
+.bookform{
+  margin:30px 0px;
+}
+.nowbutton{
+  background-color:#38015c;
+border: 1px solid white;
+color: white;
+font-weight: bold;
+border-radius: 6px;
+cursor: pointer;
+height:40px
+}
+
+.advbutton{
+  background-color:#38015c;
+  border: 1px solid white;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  height:40px
+  } 
+  .nowbutton:hover, .advbutton:hover, .nowbutton:active {
+    background-color: #c291e2;
+    color: #38015c; 
+  }
+ 
+   select{
+    font: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 15rem;
+    max-width: 100%;
+    height: 2rem;
+    padding: 0px 15px;
+    margin: -3px 5px;
+  }
+  .submit{
+    background-color:#38015c;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px; 
+    cursor: pointer;
+    height:40px;
+    right: 340px;
+    position: absolute;
+    margin: 20px 1px;
+    }
+    .submit:hover{
+      background-color: #c291e2;
+      color: #38015c; 
+    }
+  .failed{
+    text-align: center;
+    color: red;
+  }
+  .faillogo{
+    margin: 2rem auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100px;
+  }
+  .btnHeader{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  .formInput{
+    display:flex;
+    justify-content: center;
+  }
+  .advForm{
+    position: absolute;
+    right: 300px;
+    margin: -6px -29px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 15rem;
+    max-width: 100%;
+    height: 2rem;
+    padding: 0px 15px;
+
+  }
+  .submitadv{
+    background-color:#38015c;
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px; 
+    cursor: pointer;
+    height:40px;
+    right: 341px;
+    position: absolute;
+    margin: 35px 1px;
+  }
+  .submitadv:hover{
+    background-color: #c291e2;
+    color: #38015c; 
+
+  }
+  .advDate{
+    right:20px
+  }
+  
+  
