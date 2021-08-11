@@ -14,7 +14,7 @@ const AvailableDestination = () => {
   useEffect(() => {
     setIsLoading(true)
     const fetchDestination = async () => {
-      const response = await fetch('https://myparkingsolutions-default-rtdb.firebaseio.com/destinations.json');
+      const response = await fetch(db_url +'/destinations.json');
 
       if(!response.ok){
         throw new Error('Something went wrong!')

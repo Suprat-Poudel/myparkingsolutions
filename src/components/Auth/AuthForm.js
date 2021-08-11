@@ -26,7 +26,7 @@ import { Link } from 'react-router-dom';
     
     if(isLogin){
       
-       fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD8QDTrddis-y7KdoWZawqFlGr5Iz_M3q4',
+       fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key="Auth_Key',
        {
         method:'POST',
         body: JSON.stringify({
@@ -62,7 +62,7 @@ import { Link } from 'react-router-dom';
             idToken: data.idToken
           })
         }
-          fetch('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyD8QDTrddis-y7KdoWZawqFlGr5Iz_M3q4', requestOptions)
+          fetch('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="Auth_Key', requestOptions)
           .then(response => response.json())
           
           .then((data)=>{
@@ -80,7 +80,7 @@ import { Link } from 'react-router-dom';
     
     else{
       const enteredName=nameInputRef.current.value;
-       fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD8QDTrddis-y7KdoWZawqFlGr5Iz_M3q4',
+       fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="Auth_Key"',
         
       {
         method:'POST',
@@ -121,7 +121,7 @@ import { Link } from 'react-router-dom';
             returnedSecureToken:true
           })
         }
-          fetch('https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyD8QDTrddis-y7KdoWZawqFlGr5Iz_M3q4', requestOptions)
+          fetch('https://identitytoolkit.googleapis.com/v1/accounts:update?key="Auth_Key"', requestOptions)
           .then(response => response.json())
           .then((data)=>{
             console.log(data)

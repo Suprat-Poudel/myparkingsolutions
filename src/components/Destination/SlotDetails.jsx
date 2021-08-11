@@ -114,7 +114,7 @@ const SlotDetails = (props) => {
             idToken: localStorage.getItem("token")
           })
         }
-        fetch('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyD8QDTrddis-y7KdoWZawqFlGr5Iz_M3q4', requestOptions)
+        fetch('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="Auth_Key"', requestOptions)
         .then(response => response.json())
         .then((data)=>{
           console.log(data)
@@ -141,7 +141,7 @@ const SlotDetails = (props) => {
        if(i>=1){
        if(props.to==0 || props.from==0)
        {
-        const url1='https://myparkingsolutions-default-rtdb.firebaseio.com'
+        const url1=db_url
       fetch(url1 +"/booking-history/"+ email+ ".json", {
                method: 'POST',
                body: JSON.stringify({
@@ -159,7 +159,7 @@ const SlotDetails = (props) => {
                })
              });
              const d = new Date();
-             const url='https://myparkingsolutions-default-rtdb.firebaseio.com'
+             const url=db_url
            fetch(url + "/slots/" + advdate  +"/"+ email+ ".json", {
                     method: 'POST',
                     body: JSON.stringify({
@@ -169,7 +169,7 @@ const SlotDetails = (props) => {
                   });
        }
        else{
-        const url1='https://myparkingsolutions-default-rtdb.firebaseio.com'
+        const url1=db_url
       fetch(url1 +"/booking-history/"+ email+ ".json", {
                method: 'POST',
                body: JSON.stringify({
@@ -189,7 +189,7 @@ const SlotDetails = (props) => {
               var z=calctimefinal[k];
             var z1=z-1
               const d = new Date();
-              const url='https://myparkingsolutions-default-rtdb.firebaseio.com'
+              const url=db_url;
             fetch(url + "/slots/" + props.todayDate +"/"+z1+"-" +z +"/"+ email+ ".json", {
                      method: 'POST',
                      body: JSON.stringify({
