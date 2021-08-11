@@ -1,11 +1,12 @@
 import gif from "../images/gif.gif";
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext} from "react";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import Card from "../components/UI/Card";
 import classes from "./Payment.module.css";
 import Pdf from "react-to-pdf";
 import QRCode from "react-qr-code";
+import AuthCredentials from "../store/AuthCredentials";
 const ref = React.createRef();
 const options = {
   orientation: "portrait",
@@ -28,7 +29,9 @@ const Payment = (props) => {
   const [destinations, setDestinations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
-
+  const authCre = useContext(AuthCredentials);
+  const db_url= authCre.db_url;
+  const AuthKey= authCre.AuthKey
   useEffect(() => {
     setIsLoading(true);
 
@@ -40,7 +43,7 @@ const Payment = (props) => {
       }),
     };
     fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=" + Auth_Key,
+      "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="+ AuthKey,
       requestOptions
     )
       .then((response) => response.json())

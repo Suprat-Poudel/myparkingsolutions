@@ -1,16 +1,19 @@
 import classes from './ProfileForm.module.css';
 import { useRef, useContext } from 'react';
 import AuthContext from '../../store/AuthContext';
+import AuthCredentials from '../../store/AuthCredentials';
 const ProfileForm = () => {
 
   const newPassword=useRef();
   const authCtx=useContext(AuthContext)
+  const authCre=useContext(AuthCredentials)
+  const AuthKey= authCre.AuthKey;
   const submitHandler= event=>{
     event.preventDefault();
     const enteredNewPassword= newPassword.current.value;
     console.log(enteredNewPassword)
     //user validation
-    fetch('https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyDFG9Et7fD8qJPxqrWth2acaONY8CxpIcM',{
+    fetch("https://identitytoolkit.googleapis.com/v1/accounts:update?key="+ AuthKey,{
       method:'POST',
       body:JSON.stringify({
         idToken:authCtx.token,

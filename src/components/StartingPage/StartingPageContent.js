@@ -20,7 +20,7 @@ const StartingPageContent = () => {
      }
   
     <footer >
-      <p> &copy;MyParkingApp, Some rights reserved. Made with React +🔥FireBase!</p>
+      <p className={classes.foot}> &copy;MyParkingApp, Some rights reserved. Made with React +🔥FireBase!</p>
     </footer>
 
     </>

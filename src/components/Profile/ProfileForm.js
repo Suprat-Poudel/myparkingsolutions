@@ -1,17 +1,18 @@
 import classes from "./ProfileForm.module.css";
 import { useRef, useContext } from "react";
-import AuthContext from "../../store/AuthContext";
+import AuthCredentials from "../../store/AuthCredentials";
 import swal from "sweetalert";
 const ProfileForm = () => {
   const newEmail = useRef();
-  const authCtx = useContext(AuthContext);
+  const authCre = useContext(AuthCredentials);
+  const AuthKey= authCre.AuthKey;
   const submitHandler = (event) => {
     event.preventDefault();
     const enterEmail = newEmail.current.value;
     console.log(enterEmail);
     //user validation
     fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key="+Auth_Key,
+      "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key="+AuthKey,
       {
         method: "POST",
         body: JSON.stringify({

@@ -6,13 +6,23 @@
     left:0px;
     width: 26%;
     max-width: 40rem;
-    height: 75vh;
-    position: relative;
-    left: -34px;
-
-    
+    height: 35rem;
+    position: absolute;
+    margin: 2rem 0rem;
+}
+@media(max-width:420px){
+  .destination{
+    font-size: 0.5rem;
+    height:28rem;
+    width:100%;
+    top:25rem;
+    position:relative;
   }
-  
+  .foot{
+    bottom: 0px;
+  }
+}  
+
   .destination p {
     font-size: 1.5rem;
   }
@@ -67,20 +77,29 @@ text-decoration: none;
 float: right;
   
 }
+@media(max-width:420px){
+  .but{
+    margin:0.4rem 7rem;
+    font-size: 0.7rem;
+
+  }
+}
 .but:hover {
   background-color: #c291e2;
   color: #38015c; 
 }
 .foot{
   background-color: #38015c;
-    position: absolute;
-    bottom: 3px;
+  position: fixed;
+    bottom: 0.25rem;
     border-radius: 4px;
     text-align: center;
     width: 100%;
     color: white;
     display: block;
+    margin: auto;
 }
+
   .map{
     margin: 50px 444px;
     height: 355px;
@@ -88,6 +107,16 @@ float: right;
     position: absolute;
     top: 280px;
     
+}
+@media screen and (max-width:420px){
+  .map{
+    height:15%;
+    width:100%;
+    display:none;
+    top:40rem;
+    left:-27rem;
+
+  }
 }
 .slots{
   margin: 50px 444px;
@@ -97,6 +126,21 @@ float: right;
   top: 50px;
   display: flex;
 }
+ @media screen and (max-width:420px){
+  .slots{
+    font-size: 0.5rem;
+    height:15%;
+    width:100%;
+    display:block;
+    top:0rem;
+    margin:6rem 0rem;
+
+    
+  }
+
+  }
+ 
+
 .box1{
 
   flex: 50%;
@@ -117,6 +161,15 @@ float: right;
     width: 280px;
     height: 500px;
     z-index: -10;
+}
+@media(max-width:420px){
+  .amount{
+    top:16rem;
+    display: block;
+    margin:2rem 2rem;
+    font-size: 0.75rem;
+    height:7rem;
+  }
 }
 .title{
   background-color: #dcebf8;
@@ -151,7 +204,8 @@ color: white;
 font-weight: bold;
 border-radius: 6px;
 cursor: pointer;
-height:40px
+height:40px;
+margin: 0rem 0rem 0rem -1rem;
 }
 
 .advbutton{
@@ -161,11 +215,22 @@ height:40px
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-  height:40px
+  height:40px;
+  margin: 0px 0px 0px 2rem;
   } 
-  .nowbutton:hover, .advbutton:hover, .nowbutton:active {
+  .nowbutton:hover, .advbutton:hover, .nowbutton:active, .nowbutton:focus, .advbutton:active, .advbutton:focus {
     background-color: #c291e2;
     color: #38015c; 
+  }
+  @media(max-width:420px){
+    .nowbutton{
+      margin:0rem 0.5rem;
+      font-size: 0.7rem;
+    }
+    .advbutton{
+      margin: 0rem 0.5rem;
+      font-size: 0.7rem;
+    }
   }
  
    select{
@@ -177,6 +242,12 @@ height:40px
     height: 2rem;
     padding: 0px 15px;
     margin: -3px 5px;
+  }
+  @media(max-width:420px){
+    select {
+      width:8rem;
+      height:1rem;
+    }
   }
   .submit{
     background-color:#38015c;
@@ -193,6 +264,12 @@ height:40px
     .submit:hover{
       background-color: #c291e2;
       color: #38015c; 
+    }
+    @media(max-width:420px){
+      .submit{
+      left:9rem;
+      font-size: 0.7rem;
+      }
     }
   .failed{
     text-align: center;
@@ -227,6 +304,12 @@ height:40px
     padding: 0px 15px;
 
   }
+  @media(max-width:420px){
+    .advForm{
+      padding: 2px 4px;
+      right:5.5rem;
+    }
+  }
   .submitadv{
     background-color:#38015c;
     border: 1px solid white;
@@ -239,10 +322,18 @@ height:40px
     position: absolute;
     margin: 35px 1px;
   }
+
   .submitadv:hover{
     background-color: #c291e2;
     color: #38015c; 
+    
 
+  }
+  @media(max-width:420px){
+    .submitadv{
+    left:8.5rem;
+    font-size: 0.7rem;
+    }
   }
   .advDate{
     right:20px

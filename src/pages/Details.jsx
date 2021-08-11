@@ -1,12 +1,15 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import DetailsIndex from "./DetailsIndex";
 import Card from "../components/UI/Card";
 import classes from "./Details.module.css";
-import useContext from "react";
+import AuthCredentials from "../store/AuthCredentials";
 let email, name1, email1, registration, BookedDate, TotalAmount, vehicle, id;
 function Details() {
+  const authCre = useContext(AuthCredentials);
+  const db_url= authCre.db_url;
+  const AuthKey= authCre.AuthKey;
   const [destinations, setDestinations] = useState(["0"]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
@@ -22,7 +25,7 @@ function Details() {
       }),
     };
     fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="+ Auth_Key,
+      "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="+ AuthKey,
       requestOptions
     )
       .then((response) => response.json())
@@ -36,8 +39,7 @@ function Details() {
         console.log(email);
 
         const fetchDestinations = async () => {
-          const url =
-          db_url+"/booking-history";
+          const url = db_url+"/booking-history";
           const response = await fetch(
             url + "/" + email + ".json" + '?orderBy="$key"'
           );

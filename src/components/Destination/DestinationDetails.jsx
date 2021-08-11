@@ -1,9 +1,10 @@
 import classes from "./DestinationDetails.module.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState , useContext} from "react";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import SlotDetails from "./SlotDetails";
 import loading from "../../images/loading.webp";
+import AuthCredentials from "../../store/AuthCredentials";
 
 var des,
   name,
@@ -18,18 +19,20 @@ let date = "0",
   tempToTime = 0,
   tempFromTime = 0;
 const DestinationDetails = (props) => {
+  const authCre = useContext(AuthCredentials);
+  const url= authCre.db_url;
   const params = useParams();
   let id = params.detailId;
   let mapdata;
   const FIREBASE_DOMAIN =
-  db_url;
+  url;
 
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
   const [modalIsShown, setModalIsShown] = useState(false);
   const [bookToday, setBookToday] = useState(true);
   const [bookAdvance, setBookAdvance] = useState(false);
-  const [billamount, setAmountHandler] = useState(false);
+  // const [billamount, setAmountHandler] = useState(false);
 
   const [addrtype, setAddrtype] = useState();
   function handleAddrTypeChange(event) {
@@ -42,15 +45,15 @@ const DestinationDetails = (props) => {
     setExit(event.target.value);
     console.log(event.target.value);
   }
-  if (id == "m3") {
+  if (id == "om") {
     mapdata =
       "https://maps.google.com/maps?q=13.0110723,77.5528044&t=&z=15&ie=UTF8&iwloc=&output=embed";
   }
-  if (id == "m1") {
+  if (id == "br") {
     mapdata =
       "https://maps.google.com/maps?q=12.9821895,77.6061598&t=&z=15&ie=UTF8&iwloc=&output=embed";
   }
-  if (id == "m2") {
+  if (id == "cs") {
     mapdata =
       "https://maps.google.com/maps?q=12.9709909,77.6047109&t=&z=15&ie=UTF8&iwloc=&output=embed";
   }
@@ -102,9 +105,7 @@ const DestinationDetails = (props) => {
   var uuuu = maxAdvanceDate.getFullYear();
   maxAdvanceDate = uuuu + "-" + tt + "-" + rr;
 
-  const showAmountHandler=()=>{
-    setAmountHandler(true);
-  }
+
   const showModalHandler = () => {
     setModalIsShown(true);
   };
@@ -357,7 +358,7 @@ const DestinationDetails = (props) => {
                     {createToSelectItems()}
                   </select>
                 </div>
-                <button className={classes.submit} type="submit" onClick={showAmountHandler}>
+                <button className={classes.submit} type="submit">
                   Confirm Slot
                 </button>
               </div>
@@ -398,7 +399,7 @@ const DestinationDetails = (props) => {
           src={mapdata}
         ></iframe>
       </div>
-      {billamount && <div className={classes.amount}>
+      <div className={classes.amount}>
         <h2 className={classes.title}>Total Amount</h2>
         <div className={classes.bookform}>
           <span className={classes.booked}>Booking Time </span>
@@ -419,7 +420,7 @@ const DestinationDetails = (props) => {
           <span>Billing Amount</span>
           <span className={classes.amt}> &#8377;{amount}</span>
         </div>
-      </div>}
+      </div>
       </div>
 
       <footer className={classes.foot}>

@@ -2,13 +2,18 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import AuthContext from "../../store/AuthContext";
 import classes from "./MainNavigation.module.css";
+import AuthCredentials from "../../store/AuthCredentials";
+
 
 const MainNavigation = (props) => {
   const [dispname, setDispName] = useState("");
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
+  const authCre =useContext(AuthCredentials);
+  const AuthKey=authCre.AuthKey;
   const logoutHandler = () => {
-    authCtx.logout();
+  authCtx.logout();
+  // const AuthKey=authCtx.AuthKey;
   };
   const requestOptions = {
     method: "POST",
@@ -19,7 +24,7 @@ const MainNavigation = (props) => {
   };
 
   fetch(
-    "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="+Auth_Key,
+    "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="+ AuthKey,
     requestOptions
   )
     .then((response) => response.json())

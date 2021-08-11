@@ -1,9 +1,10 @@
-import  { useRef, useState } from 'react'
+import  { useRef, useState, useContext } from 'react'
 import Modal from '../UI/Modal'
 import classes from './SlotDetails.module.css'
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import swal from 'sweetalert';
+import AuthCredentials from '../../store/AuthCredentials';
 
 
 
@@ -36,6 +37,9 @@ currentBookingTime = day + " " + hr + ":" + min + ampm + " " + date + " " + mont
 
 
 const SlotDetails = (props) => {
+  const authCre = useContext(AuthCredentials);
+  const linkurl= authCre.db_url;
+  const AuthKey= authCre.AuthKey;
   var advdate=0
   advdate=props.date
   var toTime = props.to;
@@ -114,7 +118,7 @@ const SlotDetails = (props) => {
             idToken: localStorage.getItem("token")
           })
         }
-        fetch('https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="Auth_Key"', requestOptions)
+        fetch("https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="+AuthKey, requestOptions)
         .then(response => response.json())
         .then((data)=>{
           console.log(data)
@@ -141,7 +145,7 @@ const SlotDetails = (props) => {
        if(i>=1){
        if(props.to==0 || props.from==0)
        {
-        const url1=db_url
+        const url1=linkurl
       fetch(url1 +"/booking-history/"+ email+ ".json", {
                method: 'POST',
                body: JSON.stringify({
@@ -159,7 +163,7 @@ const SlotDetails = (props) => {
                })
              });
              const d = new Date();
-             const url=db_url
+             const url=linkurl
            fetch(url + "/slots/" + advdate  +"/"+ email+ ".json", {
                     method: 'POST',
                     body: JSON.stringify({
@@ -169,7 +173,7 @@ const SlotDetails = (props) => {
                   });
        }
        else{
-        const url1=db_url
+        const url1=linkurl
       fetch(url1 +"/booking-history/"+ email+ ".json", {
                method: 'POST',
                body: JSON.stringify({
@@ -189,7 +193,7 @@ const SlotDetails = (props) => {
               var z=calctimefinal[k];
             var z1=z-1
               const d = new Date();
-              const url=db_url;
+              const url=linkurl;
             fetch(url + "/slots/" + props.todayDate +"/"+z1+"-" +z +"/"+ email+ ".json", {
                      method: 'POST',
                      body: JSON.stringify({

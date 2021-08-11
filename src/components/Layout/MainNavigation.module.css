@@ -53,6 +53,38 @@
   background-color: #c291e2;
   color: #38015c;
 }
+@media(max-width:420px){
+  .header button{
+    border:none;
+    margin: 0px -1.5rem 0px 1rem;
+  }
+  .header li{
+  
+    padding:2px 0px 0px 0px;
+    margin: 0px 0px 0px -1rem;
+  }
+  
+  .name{
+    
+    padding: 0px 0px 0px 70px;
+    text-align: center;
+    width: 8rem;
+  }
+}
 .name{
   color: white;
+}
+@media(max-width:768px){
+  .logo{
+    font-size: 1rem;
+  }
+  .name{
+    font-size: 00.5rem;
+  }
+  .header a{
+    font-size: .5rem;
+  }
+  .header button{
+    font-size: .5rem;
+  }
 }

@@ -1,12 +1,16 @@
 import Card from "../UI/Card";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import DestinationIndex from './DestinationIndex'
 import classes from './AvailableDestination.module.css'
 import LoadingSpinner from "../UI/LoadingSpinner";
+import AuthCredentials from "../../store/AuthCredentials";
 
 
 
 const AvailableDestination = () => {
+  const authCre = useContext(AuthCredentials);
+  const url= authCre.db_url;
+  console.log(url)
   const [destinations, setDestination] = useState([]);
   const [isLoading, setIsLoading]=useState(true)
   const [httpError, setHttpError]=useState()
@@ -14,7 +18,7 @@ const AvailableDestination = () => {
   useEffect(() => {
     setIsLoading(true)
     const fetchDestination = async () => {
-      const response = await fetch(db_url +'/destinations.json');
+      const response = await fetch(url +'/destinations.json');
 
       if(!response.ok){
         throw new Error('Something went wrong!')
